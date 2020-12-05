@@ -30,11 +30,11 @@ class User extends REST_Controller {
         $this->load->model('User_model');
     }
 
-    public function user_get()
+    public function index_get()
     {
         // user from a data store e.g. database
 
-        $id = $this->get('id');
+        $id = $this->get('idkortti');
 
         // If the id parameter doesn't exist return all users
         if ($id === NULL)
@@ -82,22 +82,23 @@ class User extends REST_Controller {
 
     }
 
-    public function user_post()
+    public function index_post()
     {
         // Add a new user
-        $clear_password=$this->post('password');
+        $clear_password=$this->post('tunnusluku');
         $encrypted_pass = password_hash($clear_password,PASSWORD_DEFAULT);
         $add_data=array(
-          'username'=>$this->post('username'),
-          'password'=>$encrypted_pass
+          'idkortti'=>$this->post('idkortti'),
+          'tunnusluku'=>$encrypted_pass,
+          'idomistaja' => $this->post('idomistaja')
         );
         $insert_id=$this->User_model->add_user($add_data);
         if($insert_id)
         {
             $message = [
-                'id_user' => $insert_id,
-                'username' => $this->post('username'),
-                'password' => $this->post('password'),
+                'idkortti' => $insert_id,
+                'tunnusluku' => $this->post('tunnusluku'),
+                'idomistaja' => $this->post('idomistaja'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -112,24 +113,23 @@ class User extends REST_Controller {
         }
 
     }
-    public function user_put()
+    public function index_put()
     {
         // Update the user
-        $id=$this->get('id');
-        $clear_password=$this->post('password');
+        $id=$this->get('idkortti');
+        $clear_password=$this->post('tunnusluku');
         $encrypted_pass = password_hash($clear_password,PASSWORD_DEFAULT);
         $update_data=array(
-          'username'=>$this->post('username'),
-          'password'=>$encrypted_pass
+          'idkortti'=>$this->post('idkortti'),
+          'tunnusluku'=>$encrypted_pass
         );
         $result=$this->User_model->update_user($id, $update_data);
 
         if($result)
         {
           $message = [
-              'id_user' => $insert_id,
-              'username' => $this->post('username'),
-              'password' => $this->post('password'),
+              'idkortti' => $insert_id,
+              'tunnusluku' => $this->post('tunnusluku'),
               'message' => 'Added a resource'
           ];
 
@@ -145,9 +145,9 @@ class User extends REST_Controller {
         }
     }
 
-    public function user_delete()
+    public function index_delete()
     {
-        $id = $this->get('id');
+        $id = $this->get('idkortti');
 
         // Validate the id.
         if ($id <= 0)
@@ -159,7 +159,7 @@ class User extends REST_Controller {
         if ($result)
         {
           $message = [
-              'id_user' => $id,
+              'idkortti' => $id,
               'message' => 'Deleted the resource'
           ];
           $this->set_response($message, REST_Controller::HTTP_OK);

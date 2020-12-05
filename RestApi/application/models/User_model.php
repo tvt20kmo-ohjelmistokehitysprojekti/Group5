@@ -6,14 +6,17 @@ class User_model extends CI_model
 {
   function get_user($id){
     $this->db->select('*');
-    $this->db->from('user');
+
+    $this->db->from('kortti');
     if($id !== NULL) {
-      $this->db->where('id_user',$id);
+      $this->db->where('idkortti',$id);
     }
     return $this->db->get()->result_array();
   }
+  
   function add_user($add_data){
-    $this->db->insert('user',$add_data);
+
+    $this->db->insert('kortti',$add_data);
     if($this->db->insert_id()!==NULL){
       return $this->db->insert_id();
     }
@@ -22,8 +25,8 @@ class User_model extends CI_model
     }
   }
   function update_user($id, $update_data){
-    $this->db->where('id_user',$id);
-    $this->db->update('user',$update_data);
+    $this->db->where('idkortti',$id);
+    $this->db->update('kortti',$update_data);
     if($this->db->affected_rows()>0){
       return TRUE;
     }
@@ -33,8 +36,8 @@ class User_model extends CI_model
   }
 
   function delete_user($id){
-    $this->db->where('id_user',$id);
-    $this->db->delete('user');
+    $this->db->where('idkortti',$id);
+    $this->db->delete('kortti');
     if($this->db->affected_rows()>0){
       return TRUE;
     }
@@ -44,10 +47,10 @@ class User_model extends CI_model
   }
 
   function check_login($username){
-    $this->db->select('password');
-    $this->db->from('user');
-    $this->db->where('username',$username);
-    return $this->db->get()->row('password');
+    $this->db->select('tunnusluku');
+    $this->db->from('kortti');
+    $this->db->where('idkortti',$username);
+    return $this->db->get()->row('tunnusluku');
   }
 
 }
