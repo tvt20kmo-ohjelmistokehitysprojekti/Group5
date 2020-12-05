@@ -6,13 +6,16 @@ class User_model extends CI_model
 {
   function get_user($id){
     $this->db->select('*');
+
     $this->db->from('kortti');
     if($id !== NULL) {
       $this->db->where('idkortti',$id);
     }
     return $this->db->get()->result_array();
   }
+  
   function add_user($add_data){
+
     $this->db->insert('kortti',$add_data);
     if($this->db->insert_id()!==NULL){
       return $this->db->insert_id();
