@@ -127,7 +127,7 @@ class User extends REST_Controller {
         if($result)
         {
           $message = [
-              'id_user' => $insert_id,
+              'id_user' => $id,
               'username' => $this->post('username'),
               'password' => $this->post('password'),
               'message' => 'Added a resource'
