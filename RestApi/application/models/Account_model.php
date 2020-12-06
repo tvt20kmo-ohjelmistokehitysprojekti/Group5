@@ -21,7 +21,12 @@ class Account_model extends CI_Model
     }
 
     function withdraw_money($id, $amount) {
-        
+        $this->db->query("call nosto($id,$amount)");
+        if($this->db->affected_rows()>0) {
+            return true;
+        } 
+        else {
+            return false;
+        }
     }
-
 }
