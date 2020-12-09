@@ -15,3 +15,4 @@ QString MySingleton::getCardID() const {
 
 void MySingleton::setCardID(const QString &value) {
     cardID = value;
+}
