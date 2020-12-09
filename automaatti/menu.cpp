@@ -20,8 +20,3 @@ void menu::on_btnWithdraw_clicked()
     Withdraw *wit = new Withdraw();
     wit->show();
 }
-
-void menu::on_btnAccount_clicked()
-{
-
-}

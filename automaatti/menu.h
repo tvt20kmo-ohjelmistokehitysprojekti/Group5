@@ -16,11 +16,11 @@ public:
     ~menu();
 
 private slots:
-    void on_pushButton_clicked();
+//    void on_pushButton_clicked();
+
+  //  void on_btnAccount_clicked();
 
     void on_btnWithdraw_clicked();
-
-    void on_btnAccount_clicked();
 
 private:
     Ui::menu *ui;
