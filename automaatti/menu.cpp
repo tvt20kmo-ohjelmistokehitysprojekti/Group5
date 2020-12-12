@@ -1,7 +1,10 @@
 #include "menu.h"
 #include "ui_menu.h"
 #include "withdraw.h"
+#include "creditdebit.h"
+#include "ui_creditdebit.h"
 #include "balance.h"
+
 
 menu::menu(QWidget *parent) :
     QWidget(parent),
@@ -18,12 +21,14 @@ menu::~menu()
 
 void menu::on_btnWithdraw_clicked()
 {
-    Withdraw *wit = new Withdraw();
-    wit->show();
+    creditdebit *cd = new creditdebit();
+    cd->show();
+
 }
 
-void menu::on_btnAccount_clicked()
+/*void menu::on_btnAccount_clicked()
 {
     balance  *bal = new balance();
     bal->show();
 }
+

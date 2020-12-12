@@ -15,13 +15,13 @@ class Account_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tilitapahtuma');
         if ($id !== NULL) {
-            $this->db->where('idtili',$id);
+            $this->db->where('idkortti',$id);
         }
         return $this->db->get()->result_array();
     }
 
-    function withdraw_money($id, $amount) {
-        $this->db->query("call nosto($id,$amount)");
+    function withdraw_money($id, $amount, $account) {
+        $this->db->query("call nosto($id,$amount,$account)");
         if($this->db->affected_rows()>0) {
             return true;
         } 

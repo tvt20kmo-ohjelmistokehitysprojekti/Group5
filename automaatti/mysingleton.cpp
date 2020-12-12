@@ -16,3 +16,12 @@ QString MySingleton::getCardID() const {
 void MySingleton::setCardID(const QString &value) {
     cardID = value;
 }
+
+QString MySingleton::getAccount() const {
+    return Account;
+}
+
+void MySingleton::setAccount(const QString &value) {
+    Account = value;
+}
+
