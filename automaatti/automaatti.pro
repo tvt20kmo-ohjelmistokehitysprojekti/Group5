@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    balance.cpp \
         main.cpp \
         mainwindow.cpp \
     menu.cpp \
@@ -32,12 +33,14 @@ SOURCES += \
     withdraw.cpp
 
 HEADERS += \
+    balance.h \
         mainwindow.h \
     menu.h \
     mysingleton.h \
     withdraw.h
 
 FORMS += \
+    balance.ui \
         mainwindow.ui \
     menu.ui \
     withdraw.ui
