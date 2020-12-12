@@ -31,11 +31,11 @@ void MainWindow::on_btnLogin_clicked()
     MySingleton *my = MySingleton::getInstance();
     my->setCardID(CardId);
 
-    QNetworkRequest request(QUrl("http://localhost/Group5/RestApi/login/?idkortti="+CardId+"&tunnusluku="+CardPin));
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9kami06/Group5/RestApi/index.php/login?idkortti="+CardId+"&tunnusluku="+CardPin));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
         QString username = "admin";
-        QString password = "1234";
+        QString password = "projekti";
         QString concatenatedCredentials = username + ":" + password;
             QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
             QString headerData = "Basic " + data;

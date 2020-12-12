@@ -17,13 +17,14 @@ require APPPATH . 'libraries/REST_Controller.php';
         $this->load->model('Account_model');
     }
 
-    public function index_post() {
+    public function index_get() {
         
          // Update the account balance
-         $id=$this->post('id');
-         $amount=$this->post('amount');
+         $id=$this->input->get('id');
+         $amount=$this->input->get('amount');
+         $account=$this->input->get('tyyppi');
 
-         $withdraw = $this->Account_model->withdraw_money($id,$amount);
+         $withdraw = $this->Account_model->withdraw_money($id,$amount,$account);
     
          if ($withdraw){
             $message='Money withdrawed';

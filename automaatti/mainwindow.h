@@ -18,7 +18,7 @@ public:
 private slots:
     void on_btnLogin_clicked();
 
-    void on_btnWithdraw_clicked();
+    //void on_btnWithdraw_clicked();
 
 private:
     Ui::MainWindow *ui;
