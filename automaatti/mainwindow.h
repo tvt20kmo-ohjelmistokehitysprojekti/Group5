@@ -14,6 +14,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QString CardId;
+    QString CardPin;
 
 private slots:
     void on_btnLogin_clicked();

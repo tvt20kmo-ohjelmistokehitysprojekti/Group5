@@ -16,7 +16,6 @@ public:
     ~menu();
 
 private slots:
-    //void on_pushButton_clicked();
 
     void on_btnWithdraw_clicked();
 

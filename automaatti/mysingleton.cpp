@@ -24,3 +24,4 @@ QString MySingleton::getAccount() const {
 void MySingleton::setAccount(const QString &value) {
     Account = value;
 }
+
