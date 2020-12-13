@@ -23,12 +23,20 @@ void menu::on_btnWithdraw_clicked()
 {
     creditdebit *cd = new creditdebit();
     cd->show();
+    this->close();
 
 }
 
-/*void menu::on_btnAccount_clicked()
+//void menu::on_btnAccount_clicked()
+//{
+  //  balance  *bal = new balance();
+    //bal->show();
+//}
+
+
+void menu::on_btnAccount_clicked()
 {
     balance  *bal = new balance();
     bal->show();
+    this->close();
 }
-

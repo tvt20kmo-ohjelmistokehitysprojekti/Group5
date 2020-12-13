@@ -12,6 +12,7 @@
 #include <QJsonArray>
 #include <QString>
 #include <QWidget>
+#include "menu.h"
 
 Withdraw::Withdraw(QWidget *parent) :
     QWidget(parent),
@@ -85,3 +86,16 @@ void Withdraw::on_btnSuoritaNosto_clicked()
     reply->deleteLater();
 }
 
+
+void Withdraw::on_btntakaisin_clicked()
+{
+    this->close();
+    menu  *m = new menu();
+    m->show();
+}
+
+
+void Withdraw::on_btnsulje_clicked()
+{
+    this->close();
+}
