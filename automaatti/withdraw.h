@@ -31,6 +31,10 @@ private slots:
 
     void on_btnSuoritaNosto_clicked();
 
+    void on_btntakaisin_clicked();
+
+    void on_btnsulje_clicked();
+
 private:
     Ui::Withdraw *ui;
     QString amount;

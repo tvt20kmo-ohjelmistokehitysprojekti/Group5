@@ -154,6 +154,32 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="btntakaisin">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>380</y>
+     <width>121</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>takaisin</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnsulje">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>310</y>
+     <width>121</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>sulje</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

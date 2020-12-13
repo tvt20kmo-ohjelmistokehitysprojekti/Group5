@@ -22,6 +22,10 @@ public:
 private slots:
     void on_btnAmount_clicked();
 
+    void on_btnback_clicked();
+
+    void on_btnclose_clicked();
+
 private:
     Ui::balance *ui;
 

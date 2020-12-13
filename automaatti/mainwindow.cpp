@@ -55,9 +55,11 @@ void MainWindow::on_btnLogin_clicked()
             men->show();
             ui->lineEditCardId->clear();
             ui->lineEditCardPin->clear();
+            this->close();
         }
         else {
             ui->lineEditCardId->clear();
             ui->lineEditCardPin->clear();
+            ui->labelerror->setText("väärä käyttäjätunnus tai salasana");
         }
 }

@@ -22,6 +22,7 @@ void creditdebit::on_btnCredit_clicked()
     wit->show();
     MySingleton *acc = MySingleton::getInstance();
     acc->setAccount("credit");
+    this->close();
 }
 
 void creditdebit::on_btnDebit_clicked()
@@ -30,4 +31,5 @@ void creditdebit::on_btnDebit_clicked()
     wit->show();
     MySingleton *acc = MySingleton::getInstance();
     acc->setAccount("debit");
+    this->close();
 }

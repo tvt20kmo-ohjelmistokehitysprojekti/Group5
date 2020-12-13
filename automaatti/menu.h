@@ -21,6 +21,8 @@ private slots:
 
     //void on_btnAccount_clicked();
 
+    void on_btnAccount_clicked();
+
 private:
     Ui::menu *ui;
 };

@@ -13,6 +13,7 @@
 #include <QJsonArray>
 #include "mainwindow.h"
 #include "mysingleton.h"
+#include "menu.h"
 
 balance::balance(QWidget *parent) :
     QWidget(parent),
@@ -29,9 +30,9 @@ balance::~balance()
 void balance::on_btnAmount_clicked()
 {
     MySingleton *my = MySingleton::getInstance();
-    QString idCard = my->getCardID();
+    QString id = my->getCardID();
 
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9kami06/Group5/RestApi/index.php/account?idkortti=""&tyyppi="));
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9kami06/Group5/RestApi/index.php/account?id="+id));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
         QString username = "admin";
@@ -61,7 +62,7 @@ void balance::on_btnAmount_clicked()
 
 
      {
-        QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9kami06/Group5/RestApi/index.php/transaction?idkortti="+idCard));
+        QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9kami06/Group5/RestApi/index.php/transaction?id="+id));
             request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
             QString username = "admin";
@@ -98,3 +99,15 @@ void balance::on_btnAmount_clicked()
 }
 
 
+
+void balance::on_btnback_clicked()
+{
+    this->close();
+    menu  *back = new menu();
+    back->show();
+}
+
+void balance::on_btnclose_clicked()
+{
+    this->close();
+}
