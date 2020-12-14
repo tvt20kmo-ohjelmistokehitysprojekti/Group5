@@ -30,10 +30,9 @@ class Transaction extends REST_Controller {
         $this->load->model('Account_model');
     }
 
-    public function index_get($id=NULL) {
+    public function index_get() {
         
-        //$id = $this->get->('id');
-        $id = $this->uri->segment(2);
+        $id = $this->input->get('id');
 
         if ($id === NULL) {
             $account = $this->Account_model->get_transaction(NULL);
